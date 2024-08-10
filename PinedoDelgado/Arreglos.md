@@ -1,4 +1,4 @@
-### Su nombre
+### Jesús Everardo Pinedo Delgado
 # Arreglos
 
 ## Primera práctica de github
