@@ -1,4 +1,4 @@
-### CristianAdrianEsparzaCortes 
+### Cristian Adrian Esparza Cortes 
 # Arreglos
 
 ## Primera práctica de github
