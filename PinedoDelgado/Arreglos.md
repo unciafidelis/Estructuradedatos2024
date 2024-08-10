@@ -5,7 +5,7 @@
 
 Hola mundo.
 
-##Segunda práctica de github
+## Segunda práctica de github
 
 [Perfil de Github](https://github.com/unciafidelis)
 
