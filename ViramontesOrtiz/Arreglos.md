@@ -9,8 +9,8 @@ Hola Mundo.
 
 [Perfil de Github](https://github.com/unciafidelis)
 
-() -- parentesis
+( ) -- parentesis
 
-[] -- corchetes
+[ ] -- corchetes
 
-{} -- llaves
+{ } -- llaves
