@@ -4,4 +4,4 @@
 ## Primera práctica de github
 
 ## Segunda práctica de github
-[Perfil de github] https://github.com/krat0z45
+[Perfil de github](https://github.com/krat0z45)
