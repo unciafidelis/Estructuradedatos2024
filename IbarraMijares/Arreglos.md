@@ -5,8 +5,8 @@ Hola Mundo.
 ## Segunda Practica de github
 [Perfil  de Github](https://github.com/unciafidelis)
 
-() --- Parentesis
+ () --- Parentesis
 
-[] --- Corchetes
+ [] --- Corchetes
 
-{} --- llaves
+ {} --- llaves
