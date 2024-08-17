@@ -1,0 +1,151 @@
+{
+  "main": {
+    "id": "b4433d92a5714deb",
+    "type": "split",
+    "children": [
+      {
+        "id": "5c3e36b4532d64c8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c52a0021bebb4bd6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "GonzalezDelgado/Arreglos.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5454c03586f9a590",
+    "type": "split",
+    "children": [
+      {
+        "id": "a555d7e2d3f7ef72",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ab37cbf3fa78fe22",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "c934b955c2d1e5ab",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "4acc5b0e150846e2",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c9d7e27c37ecb04c",
+    "type": "split",
+    "children": [
+      {
+        "id": "8ad0007aa0a8e051",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7c34366cb4387a1a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "GonzalezDelgado/Arreglos.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c1dab755dde719ff",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "GonzalezDelgado/Arreglos.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "e7e81255288502a6",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "1aa0c4b9742bb719",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "GonzalezDelgado/Arreglos.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir selector rápido": false,
+      "graph:Abrir vista gráfica": false,
+      "canvas:Crear nuevo lienzo": false,
+      "daily-notes:Abrir la nota de hoy": false,
+      "templates:Insertar plantilla": false,
+      "command-palette:Abrir paleta de comandos": false
+    }
+  },
+  "active": "c52a0021bebb4bd6",
+  "lastOpenFiles": []
+}
