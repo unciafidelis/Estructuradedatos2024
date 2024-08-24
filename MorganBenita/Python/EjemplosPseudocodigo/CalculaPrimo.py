@@ -1,14 +1,25 @@
-print("Inserta un número entero")
+import time
+
+# Código optimizado
 n = int(input())
-c = 1
-p = 2
-d = 2
-while c <= n:
-    if p % d == 0:
-        if p == d:
-            print(f"{p}")
+def func(n):
+    start_time = time.time()
+    c = 0
+    p = 2
+
+    while c < n:
+        is_prime = True
+        for d in range(2, int(p ** 0.5) + 1):
+            if p % d == 0:
+                is_prime = False
+                break
+    
+        if is_prime:
+            print(p)
             c += 1
-        d = 2
+
         p += 1
-    else:
-        d += 1
+    end_time = time.time() 
+    return end_time - start_time
+
+print("Tiempo de ejecución:", func(n), "segundos")
