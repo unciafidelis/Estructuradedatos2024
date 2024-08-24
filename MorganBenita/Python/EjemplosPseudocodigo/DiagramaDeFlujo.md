@@ -1,0 +1,1 @@
+[Ver Diagrama](https://lucid.app/lucidchart/54267569-168a-435c-863e-c398341be2f1/edit?viewport_loc=-508%2C-67%2C1579%2C868%2C0_0&invitationId=inv_53ab9a9b-8176-4978-8b27-c7ad32e16ca6)
