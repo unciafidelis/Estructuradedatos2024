@@ -32,8 +32,3 @@ cantidad_solicitada = producto.verificar_disponibilidad()
 # Si hay suficiente stock, aplicar descuento y calcular el total
 if cantidad_solicitada is not None:
     producto.aplicar_descuento(cantidad_solicitada)
-
-
-
-
-
