@@ -4,4 +4,6 @@ class Producto:
         self.precio = precio
         self.disponibilidad = disponibilidad
 
-    def aplicar_descuento
+    def aplicar_descuento(self, porcentaje):
+        if (porcentaje > 0 and porcentaje <= 100):
+            
