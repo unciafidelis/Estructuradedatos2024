@@ -25,6 +25,8 @@ cont = 0
 print(f"el promedio es,{prom}")
 
 for j  in arregoloCal:
+
+   hAFSDFYFDYUWQFDYWQD
    
   
    if  j > prom:
