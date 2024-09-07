@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Examen1_PrimerParcial/Documentación/Diagrama_ExamenParcial1.md",
+                "file": "Examen1_PrimerParcial/Documentación/Pseudocódigo_ExamenParcial1.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Examen1_PrimerParcial/Documentación/Diagrama_ExamenParcial1.md",
+                "file": "Examen1_PrimerParcial/Documentación/Pseudocódigo_ExamenParcial1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Examen1_PrimerParcial/Documentación/Diagrama_ExamenParcial1.md",
+                "file": "Examen1_PrimerParcial/Documentación/Pseudocódigo_ExamenParcial1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Examen1_PrimerParcial/Documentación/Diagrama_ExamenParcial1.md"
+                "file": "Examen1_PrimerParcial/Documentación/Pseudocódigo_ExamenParcial1.md"
               }
             }
           }
@@ -146,13 +146,16 @@
       "command-palette:Abrir paleta de comandos": false
     }
   },
-  "active": "1b90c5eb560afd45",
+  "active": "c1d7a6acc75ef799",
   "lastOpenFiles": [
+    "Examen1_PrimerParcial/Documentación/Diagrama_ExamenParcial1.md",
+    "Examen1_PrimerParcial/Documentación/Pseudocódigo_ExamenParcial1.md",
+    "Examen1_PrimerParcial/Imagenes/Pasted image 20240907100858.png",
+    "Examen1_PrimerParcial/Imagenes/code.png",
     "Examen1_PrimerParcial/Codigo/Diagrama_ExamenParcial1.py",
     "Examen1_PrimerParcial/Documentación",
     "Examen1_PrimerParcial/Codigo",
     "Examen1_PrimerParcial/Codigo.md",
-    "Examen1_PrimerParcial/Documentación/Diagrama_ExamenParcial1.md",
     "Examen1_PrimerParcial/Imagenes",
     "Examen1_PrimerParcial/Imagenes/Captura de pantalla 2024-09-07.png",
     "Examen1_PrimerParcial/Imagenes/Pasted image 20240907094922.png"
