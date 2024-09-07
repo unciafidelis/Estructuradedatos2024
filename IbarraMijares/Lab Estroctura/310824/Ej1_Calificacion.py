@@ -5,9 +5,9 @@ class Estudiante:
 
     def evaluar(self):
         if self.calificacion >= 60:
-            print(f"{self.nombre} ha aprobado con una calificaccion de {self.calificacion}")
+            print(f"{self.nombre} ha aprobado con una calificacion de {self.calificacion}")
         else:
-            print(f"{self.nombre} ha aprobado con una calificacion de : {self.calificacion}")
+            print(f"{self.nombre} ha reprobado con una calificacion de : {self.calificacion}")
 
     def mejorar_calificacion(self, incremento):
         if incremento > 0:
