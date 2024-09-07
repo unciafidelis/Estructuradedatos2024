@@ -1,25 +1,23 @@
-
 from abc import ABC, abstractmethod
-
-class calculardistancia(ABC):
-    velocidadluz = 300000
-    def tiempoensegundos(self):
-        pass
-
-    def imprimir_distancia_segundos(self):
-        pass
-
-class calculardistanciaensegundos(calculardistancia):
-    def __init__(self,tiempoensegundos):
-        self.tiempoensegundos = tiempoensegundos
+class CalculodedistanciadelaLuz(ABC):
+    def __init__(self):
+        self.tiempo_segundos = 0
     
-    def ingreso_tiempoensegundos(self):
-        return self.tiempoensegundos
+    def Ingreso_tiempo(self):
+        self.tiempo_segundos = float(input("Introduce el tiempo en segundos: "))
 
-    def imprimir_distancia_segundos(self):
-        distancia = self.velocidadluz * self.tiempoensegundos()
-        print(f"La distancia que recorre en {self.ingreso_tiempoensegundos()} segundos en : {distancia} kilometros")
+    @abstractmethod
+    def imprimir_distancia(self):
+        pass
 
-tiempo = float(input("Ingresar tiempo en segundos"))
-calculo = calculardistanciaensegundos(tiempo)
-calculo.imprimir_distancia_segundos() 
+class Distanciarecorrida(CalculodedistanciadelaLuz):
+    velocidadluz = 300000
+
+    def imprimir_distancia(self):
+        distancia = self.velocidadluz * self.tiempo_segundos
+        print(f"La distancia recorrida {self.tiempo_segundos} segundos es: {distancia} km/s")
+
+
+distancia_luz = Distanciarecorrida()
+distancia_luz.Ingreso_tiempo() 
+distancia_luz.imprimir_distancia()
