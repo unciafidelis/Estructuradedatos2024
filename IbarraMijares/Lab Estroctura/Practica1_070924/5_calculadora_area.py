@@ -14,20 +14,13 @@ class Rectangulo:
     def area_rectangulo(self):
         return largo * ancho
 
-class Calculadora_area:
-    def __init__(self):
-        pass
-
-    def calcular_area(self, figura):
-        return calcular_area()
-
 Circulo = Circulo(5)
 Rectangulo = Rectangulo(4, 6)
-Calculadora = Calculadora_area()
 
 
-print("Area del Circulo", Calculadora.calcular_area(Circulo))
-print("Area del Rectangulo",Calculadora.calcular_area(Rectangulo))
+
+print("Area del Circulo", Circulo.calcular_area())
+print("Area del Rectangulo",Rectangulo.calcular_area())
 
 
 
