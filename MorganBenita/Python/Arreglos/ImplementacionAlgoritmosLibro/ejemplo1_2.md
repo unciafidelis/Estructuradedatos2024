@@ -1,3 +1,4 @@
+# Ejemplo 1.2
 Sea V un arreglo unidimensional de 50 elementos enteros con índices enteros.
 
 ```python
