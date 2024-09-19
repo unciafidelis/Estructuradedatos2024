@@ -1,5 +1,5 @@
 # Algoritmo 5: Elimina_desordenado
-El algoritmo elimina un elemento en un arreglo unidimensional desordenado. V es un arreglo de 100 elementos. N es el número actual de elementos. X es el valor a eliminar
+El algoritmo elimina un elemento en un arreglo unidimensional desordenado. V es un arreglo de 100 elementos. N es el número actual de elementos. X es el valor a eliminar.
 
 ## Pseudocódigo
 
