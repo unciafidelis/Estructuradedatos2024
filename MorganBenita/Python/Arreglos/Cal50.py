@@ -10,7 +10,7 @@ prom = 0
 i = 0
 
 while i < 50:
-    arregloCal.append(random.randint(1,100))
+    arregloCal.append(random.randint(1,10))
     prom += arregloCal[i]
     i += 1
 print(arregloCal)
