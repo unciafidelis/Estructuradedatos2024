@@ -10,7 +10,8 @@ while c <= n :
             c+=1
         d=2
         p+=1
-    d+=1       
+    else:
+        d+=1       
 
 
 
