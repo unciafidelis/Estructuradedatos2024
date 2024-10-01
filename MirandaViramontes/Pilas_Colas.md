@@ -70,13 +70,15 @@ Si se insertaran los elementos *lunes, martes, miércoles, jueves y viernes* en 
  estructura quedaría tal y como se muestra en la figura 3.6a. Ahora bien, si se elimina
  el elemento *viernes*, el `TOPE` apuntaría ahora a jueves (fig. 3.6b). 
  
+ ![Figura 3.6]()
  Si en algún momento se quisiera eliminar al elemento *martes*, esto no sería posible
  ya que sólo se puede tener acceso al elemento que se encuentra en la cima de la pila. 
  
   Una forma de resolver este problema es eliminar primeramente los elementos jueves y
  miércoles, de esta manera martes quedaría ubicado en la cima de `PILA` y ahora sería
  posible extraerlo (figuras 3.7a, 3.7b y 3.7c).
- 
+
+  ![Figura 3.7]()
 # Ejemplo 3.2
 
 En este ejemplo se exponen dos casos de traducción de notación infija a posfija. El primero de ellos es una expresión simple, mientras que el segundo presenta mayor grado de complejidad. En la tabla 3.1 se muestran los pasos necesarios para lograr la traducción de la primera expresión, y en la tabla 3.2 los correspondientes a la segunda expresión.
@@ -84,11 +86,30 @@ En este ejemplo se exponen dos casos de traducción de notación infija a posfij
 - A) Expresión infija: `X + Z * W`  
        Expresión postfija: `XZW*+`  
 
+##### Tabla 3.1: Traducción de infinita a postfija
+
+| Pasos | Expresión      |
+|-------|----------------|
+| 0     | X + Z * W      |
+| 1     | X + Z W *    |
+| 2     | X Z W * +    |
+
 El primer operador que se procesa durante la traducción de la expresión es la multiplicación, paso 1, debido a que es el de más alta prioridad. Se coloca el operador de tal manera que los operandos afectados por él lo precedan. Para el operador de suma se sigue el mismo criterio, los dos operandos lo preceden. En este caso, el primer operando es X y el segundo es `ZW*`.
 
 - B) Expresión infija: `(X +Z)* W / T ^ Y - V` \
        Expresión postfija: `XZ+W*TY^/V-`
-  
+
+##### Tabla 3.2: Traducción de infinita a postfija
+
+| Pasos | Expresión              |
+|-------|------------------------|
+| 0     | (X + Z) * W / T ^ Y - V |
+| 1     | XZ + * W / T ^ Y - V   |
+| 2     | XZ + * W / T Y ^ - V   |
+| 3     | XZ + W * / T Y ^ - V   |
+| 4     | XZ + W * T Y ^ / - V   |
+| 5     | XZ + W * T Y ^ / V -     |
+
 En el paso 1 se convierte la subexpresión que se encuentra entre paréntesis por ser
  la de más alta prioridad. Luego se sigue con el operador de potencia, paso 2, y así con
  los demás, según su jerarquía. Como consecuencia de que la multiplicación y la división tienen igual prioridad, se procesa primero la multiplicación por encontrarse más a
@@ -146,7 +167,7 @@ una pila `PILA`. `MAX` es el número máximo de elementos que puede almacenar la
 ### Código
 
 # Ejemplo 3.3
-Eneste ejemplo se retoman los casos del ejemplo 3.2 parailustrarel funcionamiento del
+Eneste ejemplo se retoman los casos del ejemplo 3.2 para ilustrar el funcionamiento del
  algoritmo Conv_posfija.
 
 - A) Expresión infija: `X + Z * W`  
@@ -154,6 +175,19 @@ Eneste ejemplo se retoman los casos del ejemplo 3.2 parailustrarel funcionamient
 
  En la tabla 3.3 se presentan los pasos necesarios para lograr la traducción deseada
  siguiendo el algoritmo 3.5. 
+ 
+ ##### Tabla 3.3: Traducción de infinita a postfija
+
+| Pasos | El      | Símbolo analizado  | Pila | EPOS |
+|-------|---------|--------------------|------|------|
+| 0     |  X+Z*W  |                    |      |       |
+| 1     |  +Z*W   | X                  |      |  X    |
+| 2     |  Z*W    | +                  | +    | X     |
+| 3     |  *W     |   Z                | +    | XZ    |
+| 4     |  W      |  *                 | +*   | XZ    |
+| 5     |         |   W                | +*   | XZW   |
+| 6     |         |                    | +    | XZW*  |
+| 7     |         |                    |      |  XZW*+|
  
  En los pasos 1, 3 y 5 el símbolo analizado -un operando- se agrega directamente
  a `EPOS`. Al analizar el operador +, paso 2, se verifica si en PILA hay operadores con
@@ -166,7 +200,30 @@ Eneste ejemplo se retoman los casos del ejemplo 3.2 parailustrarel funcionamient
 
 En la tabla 3.4 se presentan los pasos necesarios para lograr la traducción deseada,
  siguiendo el algoritmo 3.5.
- 
+  ##### Tabla 3.4: Traducción de infinita a postfija
+
+| Pasos | El              | Símbolo analizado  | Pila | EPOS |
+|-------|-----------------|--------------------|------|------|
+| 0     |  (X+Z)*W/T^Y-V  |           |           |                |
+| 1     |  X+Z)*W/T^Y-V   |     (     |     (     |                |
+| 2     |  +Z)*W/T^Y-V    |     X     |     (     |     X          |
+| 3     |  Z)*W/T^Y-V     |     +     |     (+    |     X          |
+| 4     |  )*W/T^Y-V      |     Z     |     (+    |     XZ         |
+| 5     |  *W/T^Y-V       |     )     |     (     |     XZ+        |
+|       |                 |     )     |           |     XZ+        |     
+| 6     |  W/T^Y-V        |     *     |     *     |     XZ+        |    
+| 7     |  /T^Y-V         |     W     |     *     |     XZ+W       |   
+| 8     |  T^Y-V          |     /     |     /     |     XZ+W*      |   
+|       |                 |     /     |     /     |     XZ+W*      |       
+|  9    |  ^Y-V           |     T     |     /     |     XZ+W*T     |    
+| 10    |  Y-V            |     ^     |     /^    |     XZ+W*T     |   
+| 11    |  -V             |     Y     |     /^    |     XZ+W*TY    |     
+|       |                 |     -     |     /     |     XZ+W*TY^   |
+| 12    |  V              |     -     |           |     XZ+W*TY^/  |     
+|       |                 |     -     |     -     |     XZ+W*TY^/  |
+| 13    |                 |     V     |     -     |     XZ+W*TY^/V |
+| 14    |                 |           |           |     XZ+W*TY^/V-|
+
  Los pasos que se consideran más relevantes son: en el paso 5, al analizar el paréntesis derecho se extraen repetidamente todos los elementos de `PILA` (en este caso
  sólo el operador +), agregándolos a `EPOS` hasta encontrar un paréntesis izquierdo. El
  paréntesis izquierdo se quita de `PILA` pero no se incluye en `EPOS`.
@@ -188,6 +245,14 @@ En la tabla 3.4 se presentan los pasos necesarios para lograr la traducción des
   
 En la tabla 3.5 se presentan los pasos necesarios para lograr la traducción deseada.
 
+##### Tabla 3.5: Traducción de infinita a prefija
+
+| Pasos | Expresión      |
+|-------|----------------|
+| 0     | X + Z * W      |
+| 1     | X + * Z W     |
+| 2     | + X * Z W    |
+
  Como en el caso de la notación postfija, ejemplo 3.2, aquí también el operador
  multiplicación se procesa primero. De la traducción de la expresión, paso 1, resulta el
 operador precediendo a los operandos. Lo mismo para el operador de suma, paso 2.
@@ -196,7 +261,18 @@ operador precediendo a los operandos. Lo mismo para el operador de suma, paso 2.
        Expresión prefija: `-/*+XZW^TYV`
 
  En la tabla 3.6 se presentan los pasos necesarios para lograr la traducción deseada.
- 
+
+ ##### Tabla 3.6: Traducción de infinita a prefija
+
+| Pasos | Expresión      |
+|-------|----------------|
+| 0     |   (X+Z)*W/T^-V   |
+| 1     | +XZ*W/T^Y-V   |
+| 2     | +XZ*W/^TY-V   |
+| 3     |     *+XZW/^TY-V |
+|  4    |     /*+XZW^TY-V |
+| 5     |     -/*+XZW^TYV |
+
  Lo primero que se procesa en este caso es la subexpresión que se encuentra entre
  paréntesis, paso 1. El orden en que se procesan los operadores es el mismo que se siguie para la conversión de infija a posfija. Por tanto, sería reiterativo volver a explicar paso a
  paso el contenido de la tabla 3.6. Sin embargo, es de destacar la posición que ocupan los
