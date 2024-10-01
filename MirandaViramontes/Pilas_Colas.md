@@ -72,6 +72,8 @@ Si se insertaran los elementos *lunes, martes, miércoles, jueves y viernes* en 
  
  ![Figura 3.6](img/3.6.PNG)
  
+ *Figura 3.6*
+ 
  Si en algún momento se quisiera eliminar al elemento *martes*, esto no sería posible
  ya que sólo se puede tener acceso al elemento que se encuentra en la cima de la pila. 
  
@@ -80,6 +82,8 @@ Si se insertaran los elementos *lunes, martes, miércoles, jueves y viernes* en 
  posible extraerlo (figuras 3.7a, 3.7b y 3.7c).
 
 ![Figura 3.7](img/3.7.PNG)
+
+*Figura 3.7*
 
 # Ejemplo 3.2
 
@@ -385,14 +389,26 @@ Este algoritmo determina si una estructura de datos tipo cola está llena, asign
  Retome el ejemplo 3.1 de la sección 3.1.2. Se insertan en `COLA` los elementos: *lunes,
  martes, miércoles, jueves y viernes* -en ese orden-, de modo que la estructura queda
  como se muestra en la figura 3.14. Para este ejemplo `MAX =7`
-
+ 
+ ![Figura 3.14](img/3.14.PNG)
+ 
+ *Figura 3.14*
+ 
  El elemento *lunes* es el primero que se puede eliminar por el el primero que se insertó en la cola. Luego de la eliminación, `FRENTE` guarda la posición del suiguiente elemento (fig 3.15a). Si ahora se insertara *sábado*, éste ocuparía ahora la posición siguiente al elemento *viernes* (fig. 3.15b). 
+
+  ![Figura 3.15](img/3.15.PNG)
+  
+*Figura 3.15*
 
  Analice lo que ocurre en la cola, si se llevan a cabo las siguientes operaciones:
 - Se eliminan *martes, miércoles, jueves* y *viernes* (fig. 3.16a).
 - Se inserta *domingo* (fig. 3.16b).
 - Se elimina *sábado* (fig. 3.16c).
 
+ ![Figura 3.16](img/3.16.PNG)
+ 
+ *Figura 3.16*
+ 
 Después de insertar al elemento *domingo*, ya no se puede insertar nuevos elementos a la cola porque `FINAL` es igual que `MAX (FINAL=MAX=7)`. Sin embargo, como lo refleja la figura 3.16c, existe espacio disponible desperdiciado.
 
 Observe que luego de insertar *domingo* se llegó a una situacion conflictiva porque a pesar de que hay espacio disponible, no se puede insertar otros elementos. Este inconveniente se puede superar perfectamente si manejamos las colas en forma circular.
@@ -450,11 +466,26 @@ Este algoritmo elimina el primer elemento de una estructura tipo cola circular `
 # Ejemplo 3.7
 En la figura 3.18a se presenta una estructura tipo cola circular de máximo 8 elementos `(MAX=8)`, en la cual ya se han almacenado algunos valores. En la figura 3.18b se muestra el estado de la cola luego de insertar el elemnto `NN`. 
 
+ ![Figura 3.18](img/3.18.PNG)
+ 
+*Figura 3.18*
+
 Si se quisiera insertar otro elemento se presentaria un error de desbordamiento, ya que `FINAL+1 = FRENTE`. 
 
 A continuacion se eliminan los valores `XX,YY,ZZ,KK, y VV` en ese orden. La cola queda como se muestra en la figura 3.19.
 
-
+ ![Figura 3.19](img/3.19.PNG)
+ 
+ *Figura 3.19*
+ 
 Ahora se elimina el siguiente elemento `RR`. Al ser `FRENTE = MAX`, se le da el valor de 1, figura 3.20.
 
+ ![Figura 3.20](img/3.20.PNG)
+ 
+ *Figura 3.20*
+ 
 Al eliminar `NN`, como `FRENTE = FINAL`, es decir, sólo quedaba un elemnto en la cola, actualizamos los dos punteros en cero. La cola queda vacia, figura 3.21.
+
+ ![Figura 3.21](img/3.21.PNG)
+ 
+ *Figura 3.21*
