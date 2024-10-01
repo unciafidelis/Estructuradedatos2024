@@ -79,7 +79,8 @@ Si se insertaran los elementos *lunes, martes, miércoles, jueves y viernes* en 
  miércoles, de esta manera martes quedaría ubicado en la cima de `PILA` y ahora sería
  posible extraerlo (figuras 3.7a, 3.7b y 3.7c).
 
-  ![Figura 3.7]()
+![Figura 3.7](img/3.7.PNG)
+
 # Ejemplo 3.2
 
 En este ejemplo se exponen dos casos de traducción de notación infija a posfija. El primero de ellos es una expresión simple, mientras que el segundo presenta mayor grado de complejidad. En la tabla 3.1 se muestran los pasos necesarios para lograr la traducción de la primera expresión, y en la tabla 3.2 los correspondientes a la segunda expresión.
