@@ -70,7 +70,8 @@ Si se insertaran los elementos *lunes, martes, miércoles, jueves y viernes* en 
  estructura quedaría tal y como se muestra en la figura 3.6a. Ahora bien, si se elimina
  el elemento *viernes*, el `TOPE` apuntaría ahora a jueves (fig. 3.6b). 
  
- ![Figura 3.6]()
+ ![Figura 3.6](img/3.6.PNG)
+ 
  Si en algún momento se quisiera eliminar al elemento *martes*, esto no sería posible
  ya que sólo se puede tener acceso al elemento que se encuentra en la cima de la pila. 
  
