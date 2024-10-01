@@ -15,6 +15,15 @@ es un parámetro de tipo entero. `BAND` es un parámetro de tipo booleano.
   2. {Fin del condicional del paso 1}
 
 ### Código
+```python
+def pila_vacia(pila, tope, band):
+    # Verifica si TOPE es 0
+    if tope == 0:
+        band = True  # La pila está vacía
+    else:
+        band = False  # La pila no está vacía
+```
+
 
 # Algoritmo 3.2
 ## Pila_llena (PILA, TOPE, MAX, BAND)
@@ -30,7 +39,13 @@ es un parámetro de tipo entero. `BAND` es un parámetro de tipo booleano.
          - Hacer `BAND <- FALSO` {La pila no está llena}
   2. {Fin del condicional del paso 1}
 ### Código
-
+```python
+def pila_llena(pila, tope, max, band):
+    if tope == max:
+        band = True  # La pila está llena
+    else:
+        band = False  # La pila no está llena
+```
 # Algoritmo 3.3
 ## Pone (PILA, TOPE, MAX, DATO)
 ### Descripción
@@ -47,7 +62,15 @@ Este algoritmo agrega el elemento `DATO` en una estructura tipo pila `PILA`, si 
           {Actualiza TOPE e inserta el nuevo elemento en el TOPE de PILA}
   3. {Fin de condicional del paso 2}
 ### Código
-
+```python
+def pone(pila, tope, max, dato):
+    pila_llena(pila, tope, max, band)
+    if band==true:  
+        print("Desbordamiento - Pila llena")
+    else:
+        tope += 1  
+        pila[tope] = dato  
+```
 # Algoritmo 3.4
 ## Quita (PILA, TOPE, DATO)
 ### Descripción
@@ -63,7 +86,16 @@ Este algoritmo saca un elemento `DATO` de unaestructura tipo pila `PILA`, si és
           - Hacer `DATO <- PILA[TOPE]` y `TOPE <- TOPE - 1` {Actualiza TOPE}
   3. {Fin de condicional del paso 2}
 ### Código
+```python
+def quita(pila, tope, dato, band):
+    pila_vacia(pila, tope, band)
 
+    if band == True: 
+        print("Subdesbordamiento - Pila vacía")
+    else:
+        dato = pila[tope]  
+        tope -= 1  
+```
 
 # Ejemplo 3.1
 Si se insertaran los elementos *lunes, martes, miércoles, jueves y viernes* en `PILA`, la
@@ -170,7 +202,7 @@ una pila `PILA`. `MAX` es el número máximo de elementos que puede almacenar la
 6. {Fin del ciclo del paso 5}
 7. Escribe `EPOS`
 
-### Código
+
 
 # Ejemplo 3.3
 Eneste ejemplo se retoman los casos del ejemplo 3.2 para ilustrar el funcionamiento del
@@ -312,8 +344,8 @@ operador precediendo a los operandos. Lo mismo para el operador de suma, paso 2.
              - 2.1.1.3 Si (el símbolo es un operador):
                - *entonces*
                  - Agregar símbolo a `EPRE`
-               # FALTA PAGINA 90 Y 91
-### Código
+               # FALTA PÁGINA 90 Y 91
+
 
 # Algoritmo 3.7
 ## Inserta_cola (COLA, MAX, FRENTE, FINAL, DATO)
@@ -327,11 +359,20 @@ Este algoritmo inserta el elemento `DATO` al final de una estructura tipo cola. 
       - 1.1 Si (`FINAL = 1`) *entonces* {Se insertó el primer elemento de `COLA`}
           - Hacer `FRENTE <- 1`
       - 1.2 {Fin del condicional del paso 1.1}
-          - *si no*
-            - Escribir "Desbordamiento-Cola llena"
+     - *si no*
+       - Escribir "Desbordamiento-Cola llena"
   2. {Fin de condicional del paso 1}
 ### Código
-
+```python
+def inserta_cola(cola, max, frente, final, dato):
+    if final < max:  
+        final += 1  
+        cola[final] = dato  # Inserta el DATO en la cola
+        if final == 1:  
+            frente = 1 
+    else:
+        print("Desbordamiento - Cola llena")
+```
 # Algoritmo 3.8
 ## Elimina_cola (COLA, FRENTE, FINAL, DATO)
 ### Descripción
@@ -352,7 +393,18 @@ Este algoritmo eliminael primerelemento de una estructura tipo cola y lo almacen
             - Escribir "Subdesbordamiento-Cola vacía"
   2. {Fin de condicional del paso 1}
 ### Código
-
+```python
+def elimina_cola(cola, frente, final, dato):
+    if frente != 0:  
+        dato = cola[frente]  
+        if frente == final:  
+            frente = 0  
+            final = 0
+        else:
+            frente += 1  
+    else:
+        print("Subdesbordamiento - Cola vacía")
+```
 # Algoritmo 3.9
 ## Cola_vacia (COLA, FRENTE, BAND)
 ### Descripción
@@ -367,7 +419,13 @@ Este algoritmo determina si una estructura de datos tipo cola está vacía, asig
        - Hacer `BAND <- FALSO`
   2. {Fin de condicional del paso 1}
 ### Código
-
+```python
+def cola_vacia(cola, frente, band):
+    if frente == 0:  
+        band = True 
+    else:
+        band = False  
+```
 # Algoritmo 3.10
 ## Cola_llena (COLA, FINAL, MAX, BAND)
 ### Descripción
@@ -384,7 +442,13 @@ Este algoritmo determina si una estructura de datos tipo cola está llena, asign
   2. {Fin de condicional del paso 1}
      
 ### Código
-
+```python
+def cola_llena(cola, final, max, band):
+    if final == max:  
+        band = True  
+    else:
+        band = False 
+```
 # Ejemplo 3.6
  Retome el ejemplo 3.1 de la sección 3.1.2. Se insertan en `COLA` los elementos: *lunes,
  martes, miércoles, jueves y viernes* -en ese orden-, de modo que la estructura queda
@@ -436,7 +500,19 @@ Este algoritmo inserta el elemento `DATO` al final de una estructura tipo cola c
   2. {Fin de condicional del paso 1}
      
 ### Código
-
+```python
+def inserta_circular(colacir, max, frente, final, dato):
+    if (final == max and frente == 1) or (final + 1 == frente): 
+        print("Desbordamiento - Cola llena")
+    else:
+        if final == max:  
+            final = 1  
+        else:
+            final += 1  
+        colacir[final] = dato 
+        if frente == 0:  
+            frente = 1  
+```
 # Algoritmo 3.12
 ## Elimina_circular (COLACIR, MAX, FRENTE, FINAL, DATO)
 ### Descripción
@@ -462,7 +538,21 @@ Este algoritmo elimina el primer elemento de una estructura tipo cola circular `
         - 1.4 {Fin del condicional del paso 1.1}
   2. {Fin de condicional del paso 1}
 ### Código
-
+```python
+def elimina_circular(colacir, max, frente, final, dato):
+    if frente == 0:  
+        print("Subdesbordamiento - Cola vacía")
+    else:
+        dato = colacir[frente]  
+        if frente == final:  
+            frente = 0  
+            final = 0
+        else:
+            if frente == max:  
+                frente = 1 
+            else:
+                frente += 1 
+```
 # Ejemplo 3.7
 En la figura 3.18a se presenta una estructura tipo cola circular de máximo 8 elementos `(MAX=8)`, en la cual ya se han almacenado algunos valores. En la figura 3.18b se muestra el estado de la cola luego de insertar el elemnto `NN`. 
 
