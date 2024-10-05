@@ -4,6 +4,7 @@ alumnos. Se necesita saber cuántos de éstos
 tienen calificación superior al promedio del grupo."""
 
 import random
+import numpy as np
 
 arregloCal = []
 prom = 0
@@ -24,3 +25,8 @@ for j in arregloCal:
         cont+=1
     k += 1
 print(cont) 
+
+lista1 = [20,True,"algo"]
+lista2 = ["20",False,1.4]
+x = np.array([lista1,lista2])
+print(x)
