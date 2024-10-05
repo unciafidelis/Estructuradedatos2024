@@ -72,3 +72,64 @@ si no
 Hacer BAND = FALSO (La pila no está llena)
 (Fin del condicional del paso 1)
 '''
+
+#algoritmo pila llena
+def pila_llena(pila, tope, max, band):
+    if tope == max:
+        band = True  # La pila está llena
+    else:
+        band = False  # La pila no está llena
+
+#algoritmo pila vacía
+def pila_vacia(pila, tope, band):
+    # Verifica si TOPE es 0
+    if tope == 0:
+        band = True  # La pila está vacía
+    else:
+        band = False  # La pila no está vacía
+
+#aLGORITMO PONE
+def pone(pila, tope, max, dato):
+    band=None
+    pila_llena(pila, tope, max, band)
+    if band==True:  
+        print("Desbordamiento - Pila llena")
+    else:
+        tope += 1  
+        pila[tope] = dato  
+
+#ALGORITMO QUITA
+def quita(pila, tope, dato, band):
+    pila_vacia(pila, tope, band)
+
+    if band == True: 
+        print("Subdesbordamiento - Pila vacía")
+    else:
+        dato = pila[tope]  
+        tope -= 1
+
+
+TOPE = 0
+pila = []
+EI = 'X*(Z+W)/(T-V)'
+while(EI!=None):
+    EI = EI.
+if(EI):
+    pila[TOPE]=EI
+print(EI)  
+'''
+Llamar a Pone con PILA, TOPE, MAX y símbolo
+si no
+Si (símbolo es paréntesis izquierdo)
+entonces
+Mientras (PILA[TOPE] != paréntesis derecho) Repetir
+Llamar a Quita con PILA, TOPE y DATO
+Hacer EPRE = EPRE + DATO
+{Fin del ciclo}
+{Sacamos el paréntesis derecho de PILA y no se agrega a EPRE}
+Llamar a Quita con PILA, TOPE y DATO
+si no
+Si (símbolo es un operando)
+entonces
+Agregar símbolo a EPRE
+'''
