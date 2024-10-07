@@ -124,86 +124,103 @@ Hacer BAND = FALSO (La pila no está llena)
 (Fin del condicional del paso 1)
 '''
 
-#algoritmo pila llena
-def pila_llena(pila, tope, max, band):
-    if tope == max:
-        band = True  # La pila está llena
-    else:
-        band = False  # La pila no está llena
-
-#algoritmo pila vacía
-def pila_vacia(pila, tope, band):
-    # Verifica si TOPE es 0
-    if tope == 0:
-        band = True  # La pila está vacía
-    else:
-        band = False  # La pila no está vacía
-
-#aLGORITMO PONE
 def pone(pila, tope, max, dato):
-    band=None
-    pila_llena(pila, tope, max, band)
-    if band==True:  
+    if tope == max - 1:
         print("Desbordamiento - Pila llena")
     else:
-        tope += 1  
-        pila[tope] = dato  
+        tope += 1
+        pila[tope] = dato
+    return tope
 
-#ALGORITMO QUITA
-def quita(pila, tope, dato, band):
-    pila_vacia(pila, tope, band)
-
-    if band == True: 
+def quita(pila, tope):
+    if tope == -1:
         print("Subdesbordamiento - Pila vacía")
+        return None, tope
     else:
-        dato = pila[tope]  
+        dato = pila[tope]
         tope -= 1
+        return dato, tope
+    
 def prioridadOperador(op):
-    if op in ['+','-']:
+    if op in ['+', '-']:
         return 1
     if op in ['*', '/']:
         return 2
     if op == '^':
         return 3
+    return 0
 
-tope = 0
-pila = []
-dato = ''
-EPOS = ''
-EI = 'X*(Z+W)/(T-V)'
+def esOperador(op):
+    return op in ['+', '-', '*', '/', '^']
+
+def infija_a_posfija(EI):
+    pila = [''] * 20
+    tope = -1
+    EPOS = ""  
+    max = 20
+    
+    for simbolo in EI:
+        if simbolo.isalnum():  
+            EPOS += simbolo
+        elif simbolo == '(':
+            tope = pone(pila, tope, max, simbolo)
+        elif simbolo == ')':
+            while pila[tope] != '(':
+                dato, tope = quita(pila, tope)
+                EPOS += dato
+            _, tope = quita(pila, tope)
+        elif esOperador(simbolo):
+            while (tope != -1 and prioridadOperador(pila[tope]) >= prioridadOperador(simbolo)):
+                dato, tope = quita(pila, tope)
+                EPOS += dato
+            tope = pone(pila, tope, max, simbolo)
+    
+    while tope != -1:
+        dato, tope = quita(pila, tope)
+        EPOS += dato
+
+    return EPOS
+
+expresion = "(X+Z)*W/T^Y-V"
+print("Expresión infija:", expresion)
+expresion_posfija = infija_a_posfija(expresion)
+print("Expresión posfija:", expresion_posfija)
+
+'''
 band = False
 while(EI!=''):
-    EI = EI[0] 
-    if EI == '(':
-        pila[tope] = EI
-        max = pila.count
-        pone(pila, tope, max, EI)
-    elif EI == ')':
+    dato = EI[0] 
+    if dato == '(':
+        print(dato)
+        pila[tope] = dato
+        pone(pila, tope, max, dato)
+    elif dato == ')':
         while(pila[tope] != '('):
-            quita(pila,tope,EI,band)
-        EPOS = EPOS + EI
-        quita(pila,tope,EI,band)
-    elif EI != '*' or EI != '+' or EI != '/' or EI != '-':
-        EPOS = EPOS + EI
+            quita(pila,tope,dato,band)
+        EPOS = EPOS + dato
+        quita(pila,tope,dato,band)
+    elif dato != '*' or dato != '+' or dato != '/' or dato != '-':
+        EPOS = EPOS + dato
     else:
         pila_vacia(pila, tope, band)
     while(band == False):
         prioridad = prioridadOperador(EI)
         if prioridad == 3:
-            quita(pila,tope,EI,band)
-            EPOS = EPOS + EI
+            quita(pila,tope,dato,band)
+            EPOS = EPOS + dato
         elif prioridad == 2:
             quita(pila,tope,EI,band)
-            EPOS = EPOS + EI
+            EPOS = EPOS + dato
         else:
             quita(pila,tope,EI,band)
-            EPOS = EPOS + EI
+            EPOS = EPOS + dato
         pila_vacia(pila,tope,band)
-    pone(pila,tope,max,EI)
+    pone(pila,tope,max,dato)
 
 pila_vacia(pila,tope,band)
 while (band == False):
-    quita(pila,tope,EI,band)
-    EPOS = EPOS + EI
+    quita(pila,tope,dato,band)
+    EPOS = EPOS + dato
     pila_vacia(pila,tope,band)
 print(EPOS)
+'''
