@@ -1,8 +1,8 @@
-Cápitulo 3.- PILAS Y COLAS
+# Cápitulo 3.- PILAS Y COLAS
 
-# Algoritmo 3.1
-## Pila_vacia (PILA, TOPE, BAND)
-### Algoritmo
+## Algoritmo 3.1
+### Pila_vacia (PILA, TOPE, BAND)
+#### Algoritmo
 1. Si (`TOPE=0`) {Verifica si no hay elementos almacenados en la pila} 
      - *entonces*
          - Hacer `BAND <- VERDADERO` {La pila está vacía}
@@ -11,9 +11,9 @@ Cápitulo 3.- PILAS Y COLAS
   2. {Fin del condicional del paso 1}
 
 
-# Algoritmo 3.2
-## Pila_llena (PILA, TOPE, MAX, BAND)
-### Algoritmo
+## Algoritmo 3.2
+### Pila_llena (PILA, TOPE, MAX, BAND)
+#### Algoritmo
 1. Si (`TOPE=MAX`) 
    - *entonces*
       - Hacer `BAND <- VERDADDERO` {La pila está llena}
@@ -22,9 +22,9 @@ Cápitulo 3.- PILAS Y COLAS
 2. {Fin del condicional del paso 1}
 
 
-# Algoritmo 3.3
-## Pone (PILA, TOPE, MAX, DATO)
-### Algoritmo
+## Algoritmo 3.3
+### Pone (PILA, TOPE, MAX, DATO)
+#### Algoritmo
 1. Llamar a `Pila_llena` con `PILA`, `TOPE`, `MAX` y `BAND`
 2. Si (`BAND=VERDADERO`)
    - *entonces*
@@ -35,9 +35,9 @@ Cápitulo 3.- PILAS Y COLAS
 3. {Fin de condicional del paso 2}
 
 
-# Algoritmo 3.4
-## Quita (PILA, TOPE, DATO)
-### Algoritmo
+## Algoritmo 3.4
+### Quita (PILA, TOPE, DATO)
+#### Algoritmo
 1. Llamar a `Pila_vacia` con `PILA`, `TOPE` y `BAND`
 2. Si (`BAND=VERDADERO`)
    - *entonces*
@@ -78,9 +78,9 @@ tal manera que los operandos afectados por él lo precedan. Para el operador de 
 
 En el paso 1 se convierte la subexpresión que se encuentra entre paréntesis por ser la de más alta prioridad. Luego se sigue con el operador de potencia, paso 2, y así con los demás, según su jerarquía. Como consecuencia de que la multiplicación y la división tienen igual prioridad, se procesa primero la multiplicación por encontrarse más a la izquierda en la expresión, paso 3. El operador de la resta es el último que se mueve, paso 5. A continuación se presenta el algoritmo que traduce una expresión infija a otra posfija.
  
-# Algoritmo 3.5
-## Conv_postfija (EL EPOS)
-### Algoritmo
+## Algoritmo 3.5
+### Conv_postfija (EL EPOS)
+#### Algoritmo
 1. Hacer `TOPE <- 0`
 2. Mientras (`EL` sea diferente de la cadena vacía) Repetir
    - Tomar el símbolo más a la izquierda de `EL`. Recortar luego la expresión.
@@ -147,9 +147,7 @@ Cuando se trata el operador de división, paso 8, se quita de `PILA` el operador
 
 
 ## Ejemplo 3.4
-
- En este ejemplo se exponen dos casos de traducción de notación infija a prefija. El primero de ellos es una expresión simple, mientras que el segundo presenta mayor grado
- de complejidad.
+En este ejemplo se exponen dos casos de traducción de notación infija a prefija. El primero de ellos es una expresión simple, mientras que el segundo presenta mayor grado de complejidad.
 
 - a) Expresión infija: `X + Z * W`  
      Expresión prefija: `XZW*+`
@@ -165,6 +163,7 @@ Como en el caso de la notación postfija, ejemplo 3.2, aquí también el operado
 
 En la tabla 3.6 se presentan los pasos necesarios para lograr la traducción deseada.
 Lo primero que se procesa en este caso es la subexpresión que se encuentra entre paréntesis, paso 1. El orden en que se procesan los operadores es el mismo que se siguiente
+
 #### Tabla 3.5: Traducción de infinita a prefija
 ![Imagen Tabla 3.5](image-7.png)
 
@@ -176,9 +175,9 @@ para la conversión de infija a posfija. Por tanto, sería reiterativo volver a 
    A continuación se incluye el algoritmo de conversión de notación infija a prefija.
 Este algoritmo se diferencia del anterior básicamente en el hecho de que los elementos de la expresión en notación infija se recorrerán de derecha a izquierda.
  
-# Algoritmo 3.6
-## Conv_prefija (EL EPRE)
-### Algoritmo
+## Algoritmo 3.6
+### Conv_prefija (EL EPRE)
+#### Algoritmo
 1. Hacer `TOPE <- 0`
 2. Mientras (`EL` sea diferente de la cadena vacía) Repetir
    - Tomar el símbolo más a la derecha de `EL`, recortando luego la expresión.
@@ -199,9 +198,9 @@ Este algoritmo se diferencia del anterior básicamente en el hecho de que los el
                - # FALTA PÁGINA 90 Y 91
 
 
-# Algoritmo 3.7
-## Inserta_cola (COLA, MAX, FRENTE, FINAL, DATO)
-### Algoritmo
+## Algoritmo 3.7
+### Inserta_cola (COLA, MAX, FRENTE, FINAL, DATO)
+#### Algoritmo
 1. Si (`FINAL<MAX`) {Verifica que hay espacio libre}
    - *entonces*
       - Hacer `FINAL <- FINAL + 1` {Actualiza `FINAL`} y `COLA[FINAL] <- DATO`
@@ -212,9 +211,9 @@ Este algoritmo se diferencia del anterior básicamente en el hecho de que los el
        - Escribir "Desbordamiento-Cola llena"
 2. {Fin de condicional del paso 1}
 
-# Algoritmo 3.8
-## Elimina_cola (COLA, FRENTE, FINAL, DATO)
-### Algoritmo
+## Algoritmo 3.8
+### Elimina_cola (COLA, FRENTE, FINAL, DATO)
+#### Algoritmo
 1. Si (`FRENTE != 0`) {Verifica que la cola no este vacía}
    - *entonces*
        - Hacer `DATO <- COLA [FRENTE]` 
@@ -229,21 +228,20 @@ Este algoritmo se diferencia del anterior básicamente en el hecho de que los el
 2. {Fin de condicional del paso 1}
 
 
-# Algoritmo 3.9
-## Cola_vacia (COLA, FRENTE, BAND)
-### Algoritmo
+## Algoritmo 3.9
+### Cola_vacia (COLA, FRENTE, BAND)
+#### Algoritmo
 1. Si (`FRENTE = 0`) 
    - *entonces*
       - Hacer `BAND <- VERDADERO` 
    - *si no*
       - Hacer `BAND <- FALSO`
 2. {Fin de condicional del paso 1}
-### Código
 
 
-# Algoritmo 3.10
-## Cola_llena (COLA, FINAL, MAX, BAND)
-### Algoritmo
+## Algoritmo 3.10
+### Cola_llena (COLA, FINAL, MAX, BAND)
+#### Algoritmo
 1. Si (`FINAL = MAX`) 
    - *entonces*
       - Hacer `BAND <- VERDADERO` 
@@ -273,9 +271,9 @@ Después de insertar al elemento *domingo*, ya no se puede insertar nuevos eleme
 Observe que luego de insertar *domingo* se llegó a una situacion conflictiva porque a pesar de que hay espacio disponible, no se puede insertar otros elementos. Este inconveniente se puede superar perfectamente si manejamos las colas en forma circular.
 
  
-# Algoritmo 3.11
-## Inserta_circular (COLACIR, MAX, FRENTE, FINAL, DATO)
-### Algoritmo
+## Algoritmo 3.11
+### Inserta_circular (COLACIR, MAX, FRENTE, FINAL, DATO)
+#### Algoritmo
 1. Si ((`FINAL = MAX`) y (`FRENTE = 1`)) o ((`FINAL + 1) = FRENTE`)
    - *entonces*
       - Escribir "Desbordamiento-Cola llena"
@@ -293,9 +291,9 @@ Observe que luego de insertar *domingo* se llegó a una situacion conflictiva po
 2. {Fin de condicional del paso 1}
 
 
-# Algoritmo 3.12
-## Elimina_circular (COLACIR, MAX, FRENTE, FINAL, DATO)
-### Algoritmo
+## Algoritmo 3.12
+### Elimina_circular (COLACIR, MAX, FRENTE, FINAL, DATO)
+#### Algoritmo
 1. Si (`FRENTE = 0`) {Verifica si la cola está vacía}
    - *entonces*
       - Escribir "Subdesbordamiento-Cola vacía"
@@ -315,7 +313,7 @@ Observe que luego de insertar *domingo* se llegó a una situacion conflictiva po
 2. {Fin de condicional del paso 1}
 
 
-# Ejemplo 3.7
+## Ejemplo 3.7
 En la figura 3.18a se presenta una estructura tipo cola circular de máximo 8 elementos `(MAX=8)`, en la cual ya se han almacenado algunos valores. En la figura 3.18b se muestra el estado de la cola luego de insertar el elemnto `NN`. 
 Si se quisiera insertar otro elemento se presentaria un error de desbordamiento, ya que `FINAL+1 = FRENTE`. 
 A continuacion se eliminan los valores `XX,YY,ZZ,KK, y VV` en ese orden. La cola queda como se muestra en la figura 3.19.
