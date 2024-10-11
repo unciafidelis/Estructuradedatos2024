@@ -175,7 +175,7 @@ para la conversión de infija a posfija. Por tanto, sería reiterativo volver a 
 Este algoritmo se diferencia del anterior básicamente en el hecho de que los elementos de la expresión en notación infija se recorrerán de derecha a izquierda.
  
 # Algoritmo 3.6
-## Conv_pretfija (EL, EPRE)
+## Conv_prefija (EL PRRE)
 ### Algoritmo
 1. Hacer `TOPE <- 0`
 2. Mientras (`EL` sea diferente de la cadena vacía) Repetir
