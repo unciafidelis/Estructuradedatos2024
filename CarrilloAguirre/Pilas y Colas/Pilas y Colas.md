@@ -2,7 +2,6 @@
 
 ## Algoritmo 3.1
 ### Pila_vacia (PILA, TOPE, BAND)
-#### Algoritmo
 1. Si (`TOPE=0`) {Verifica si no hay elementos almacenados en la pila} 
      - *entonces*
          - Hacer `BAND <- VERDADERO` {La pila está vacía}
@@ -13,7 +12,6 @@
 
 ## Algoritmo 3.2
 ### Pila_llena (PILA, TOPE, MAX, BAND)
-#### Algoritmo
 1. Si (`TOPE=MAX`) 
    - *entonces*
       - Hacer `BAND <- VERDADDERO` {La pila está llena}
@@ -24,7 +22,6 @@
 
 ## Algoritmo 3.3
 ### Pone (PILA, TOPE, MAX, DATO)
-#### Algoritmo
 1. Llamar a `Pila_llena` con `PILA`, `TOPE`, `MAX` y `BAND`
 2. Si (`BAND=VERDADERO`)
    - *entonces*
@@ -37,7 +34,6 @@
 
 ## Algoritmo 3.4
 ### Quita (PILA, TOPE, DATO)
-#### Algoritmo
 1. Llamar a `Pila_vacia` con `PILA`, `TOPE` y `BAND`
 2. Si (`BAND=VERDADERO`)
    - *entonces*
@@ -80,7 +76,6 @@ En el paso 1 se convierte la subexpresión que se encuentra entre paréntesis po
  
 ## Algoritmo 3.5
 ### Conv_postfija (EL EPOS)
-#### Algoritmo
 1. Hacer `TOPE <- 0`
 2. Mientras (`EL` sea diferente de la cadena vacía) Repetir
    - Tomar el símbolo más a la izquierda de `EL`. Recortar luego la expresión.
@@ -122,15 +117,14 @@ En el paso 1 se convierte la subexpresión que se encuentra entre paréntesis po
 
 
 ## Ejemplo 3.3
-Eneste ejemplo se retoman los casos del ejemplo 3.2 para ilustrar el funcionamiento del
- algoritmo Conv_posfija.
+Eneste ejemplo se retoman los casos del ejemplo 3.2 para ilustrar el funcionamiento del algoritmo Conv_posfija.
 
 - a) Expresión infija: `X + Z * W`  
      Expresión postfija: `XZW*+`
 
- En la tabla 3.3 se presentan los pasos necesarios para lograr la traducción deseada
- siguiendo el algoritmo 3.5. 
- En los pasos 1, 3 y 5 el símbolo analizado -un operando- se agrega directamente a `EPOS`. Al analizar el operador +, paso 2, se verifica si en PILA hay operadores con mayor o igual prioridad. En este caso, `PILA` está vacía; por tanto, se pone el símbolo en el tope de ella. Con el operador *, paso 4, sucede algo similar. En `PILA` no existen
+En la tabla 3.3 se presentan los pasos necesarios para lograr la traducción deseada
+siguiendo el algoritmo 3.5. 
+En los pasos 1, 3 y 5 el símbolo analizado -un operando- se agrega directamente a `EPOS`. Al analizar el operador +, paso 2, se verifica si en PILA hay operadores con mayor o igual prioridad. En este caso, `PILA` está vacía; por tanto, se pone el símbolo en el tope de ella. Con el operador *, paso 4, sucede algo similar. En `PILA` no existen
  
 #### Tabla 3.3: Traducción de infinita a postfija
 ![Imagen Tabla 3.3](image-5.png)
@@ -177,7 +171,6 @@ Este algoritmo se diferencia del anterior básicamente en el hecho de que los el
  
 ## Algoritmo 3.6
 ### Conv_prefija (EL EPRE)
-#### Algoritmo
 1. Hacer `TOPE <- 0`
 2. Mientras (`EL` sea diferente de la cadena vacía) Repetir
    - Tomar el símbolo más a la derecha de `EL`, recortando luego la expresión.
@@ -200,7 +193,6 @@ Este algoritmo se diferencia del anterior básicamente en el hecho de que los el
 
 ## Algoritmo 3.7
 ### Inserta_cola (COLA, MAX, FRENTE, FINAL, DATO)
-#### Algoritmo
 1. Si (`FINAL<MAX`) {Verifica que hay espacio libre}
    - *entonces*
       - Hacer `FINAL <- FINAL + 1` {Actualiza `FINAL`} y `COLA[FINAL] <- DATO`
@@ -213,7 +205,6 @@ Este algoritmo se diferencia del anterior básicamente en el hecho de que los el
 
 ## Algoritmo 3.8
 ### Elimina_cola (COLA, FRENTE, FINAL, DATO)
-#### Algoritmo
 1. Si (`FRENTE != 0`) {Verifica que la cola no este vacía}
    - *entonces*
        - Hacer `DATO <- COLA [FRENTE]` 
@@ -230,7 +221,6 @@ Este algoritmo se diferencia del anterior básicamente en el hecho de que los el
 
 ## Algoritmo 3.9
 ### Cola_vacia (COLA, FRENTE, BAND)
-#### Algoritmo
 1. Si (`FRENTE = 0`) 
    - *entonces*
       - Hacer `BAND <- VERDADERO` 
@@ -241,7 +231,6 @@ Este algoritmo se diferencia del anterior básicamente en el hecho de que los el
 
 ## Algoritmo 3.10
 ### Cola_llena (COLA, FINAL, MAX, BAND)
-#### Algoritmo
 1. Si (`FINAL = MAX`) 
    - *entonces*
       - Hacer `BAND <- VERDADERO` 
@@ -293,7 +282,6 @@ Observe que luego de insertar *domingo* se llegó a una situacion conflictiva po
 
 ## Algoritmo 3.12
 ### Elimina_circular (COLACIR, MAX, FRENTE, FINAL, DATO)
-#### Algoritmo
 1. Si (`FRENTE = 0`) {Verifica si la cola está vacía}
    - *entonces*
       - Escribir "Subdesbordamiento-Cola vacía"
