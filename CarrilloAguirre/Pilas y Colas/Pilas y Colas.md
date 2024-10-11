@@ -77,7 +77,7 @@ tal manera que los operandos afectados por él lo precedan. Para el operador de 
 En el paso 1 se convierte la subexpresión que se encuentra entre paréntesis por ser la de más alta prioridad. Luego se sigue con el operador de potencia, paso 2, y así con los demás, según su jerarquía. Como consecuencia de que la multiplicación y la división tienen igual prioridad, se procesa primero la multiplicación por encontrarse más a la izquierda en la expresión, paso 3. El operador de la resta es el último que se mueve, paso 5. A continuación se presenta el algoritmo que traduce una expresión infija a otra posfija.
  
 # Algoritmo 3.5
-## Conv_postfija (EL, EPOS)
+## Conv_postfija (EL EPOS)
 ### Algoritmo
 1. Hacer `TOPE <- 0`
 2. Mientras (`EL` sea diferente de la cadena vacía) Repetir
@@ -175,7 +175,7 @@ para la conversión de infija a posfija. Por tanto, sería reiterativo volver a 
 Este algoritmo se diferencia del anterior básicamente en el hecho de que los elementos de la expresión en notación infija se recorrerán de derecha a izquierda.
  
 # Algoritmo 3.6
-## Conv_prefija (EL PRRE)
+## Conv_prefija (EL EPRE)
 ### Algoritmo
 1. Hacer `TOPE <- 0`
 2. Mientras (`EL` sea diferente de la cadena vacía) Repetir
