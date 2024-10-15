@@ -16,12 +16,11 @@ es un parámetro de tipo entero. `BAND` es un parámetro de tipo booleano.
 
 ### Código
 ```python
-def pila_vacia(pila, tope, band):
-    # Verifica si TOPE es 0
-    if tope == 0:
-        band = True  # La pila está vacía
-    else:
-        band = False  # La pila no está vacía
+def pila_vacia(pila, tope):
+    band = False  
+    if tope == 0: 
+        band = True  
+    return band 
 ```
 
 
@@ -40,11 +39,12 @@ def pila_vacia(pila, tope, band):
   2. {Fin del condicional del paso 1}
 ### Código
 ```python
-def pila_llena(pila, tope, max, band):
-    if tope == max:
-        band = True  # La pila está llena
-    else:
-        band = False  # La pila no está llena
+def pila_llena(pila, tope, max):
+    band = False 
+    if tope == max: 
+        band = True  
+    return band  
+
 ```
 # Algoritmo 3.3
 ## Pone (PILA, TOPE, MAX, DATO)
@@ -64,12 +64,12 @@ Este algoritmo agrega el elemento `DATO` en una estructura tipo pila `PILA`, si 
 ### Código
 ```python
 def pone(pila, tope, max, dato):
-    pila_llena(pila, tope, max, band)
-    if band==true:  
+    if tope == max - 1:
         print("Desbordamiento - Pila llena")
     else:
-        tope += 1  
-        pila[tope] = dato  
+        tope += 1
+        pila[tope] = dato
+    return tope 
 ```
 # Algoritmo 3.4
 ## Quita (PILA, TOPE, DATO)
@@ -88,13 +88,13 @@ Este algoritmo saca un elemento `DATO` de unaestructura tipo pila `PILA`, si és
 ### Código
 ```python
 def quita(pila, tope, dato, band):
-    pila_vacia(pila, tope, band)
-
-    if band == True: 
+     if tope == -1:
         print("Subdesbordamiento - Pila vacía")
+        return None, tope
     else:
-        dato = pila[tope]  
-        tope -= 1  
+        dato = pila[tope]
+        tope -= 1
+        return dato, tope 
 ```
 
 # Ejemplo 3.1
@@ -201,7 +201,53 @@ una pila `PILA`. `MAX` es el número máximo de elementos que puede almacenar la
    - Llamar a `Pila_vacia` con `PILA`, `TOPE` y `BAND`
 6. {Fin del ciclo del paso 5}
 7. Escribe `EPOS`
+### Código
+```python
+def prioridadOperador(op):
+    if op in ['+', '-']:
+        return 1
+    if op in ['*', '/']:
+        return 2
+    if op == '^':
+        return 3
+    return 0
 
+def esOperador(op):
+    return op in ['+', '-', '*', '/', '^']
+
+def Conv_postfija(EI):
+    pila = [''] * 20
+    tope = -1
+    EPOS = ""  
+    max = 20
+    
+    for simbolo in EI:
+        if simbolo.isalnum():  
+            EPOS += simbolo
+        elif simbolo == '(':
+            tope = pone(pila, tope, max, simbolo)
+        elif simbolo == ')':
+            while pila[tope] != '(':
+                dato, tope = quita(pila, tope)
+                EPOS += dato
+            _, tope = quita(pila, tope)
+        elif esOperador(simbolo):
+            while (tope != -1 and prioridadOperador(pila[tope]) >= prioridadOperador(simbolo)):
+                dato, tope = quita(pila, tope)
+                EPOS += dato
+            tope = pone(pila, tope, max, simbolo)
+    
+    while tope != -1:
+        dato, tope = quita(pila, tope)
+        EPOS += dato
+
+    return EPOS
+
+expresion = "(X+Z)*W/T^Y-V"
+print("Expresión infija:", expresion)
+expresion_posfija = Conv_postfija(expresion)
+print("Expresión posfija:", expresion_posfija)
+```
 
 
 # Ejemplo 3.3
@@ -365,13 +411,14 @@ Este algoritmo inserta el elemento `DATO` al final de una estructura tipo cola. 
 ### Código
 ```python
 def inserta_cola(cola, max, frente, final, dato):
-    if final < max:  
+    if final < max: 
         final += 1  
-        cola[final] = dato  # Inserta el DATO en la cola
-        if final == 1:  
-            frente = 1 
+        cola[final] = dato  
+        if final == 1: 
+            frente = 1
     else:
         print("Desbordamiento - Cola llena")
+    return frente, final  
 ```
 # Algoritmo 3.8
 ## Elimina_cola (COLA, FRENTE, FINAL, DATO)
@@ -394,16 +441,19 @@ Este algoritmo eliminael primerelemento de una estructura tipo cola y lo almacen
   2. {Fin de condicional del paso 1}
 ### Código
 ```python
-def elimina_cola(cola, frente, final, dato):
-    if frente != 0:  
+def elimina_cola(cola, frente, final):
+    if frente != 0: 
         dato = cola[frente]  
         if frente == final:  
             frente = 0  
             final = 0
         else:
-            frente += 1  
+            frente += 1 
     else:
         print("Subdesbordamiento - Cola vacía")
+    
+    return frente, final, dato 
+
 ```
 # Algoritmo 3.9
 ## Cola_vacia (COLA, FRENTE, BAND)
@@ -420,11 +470,12 @@ Este algoritmo determina si una estructura de datos tipo cola está vacía, asig
   2. {Fin de condicional del paso 1}
 ### Código
 ```python
-def cola_vacia(cola, frente, band):
+def cola_vacia(frente):
+    band = False  
     if frente == 0:  
-        band = True 
-    else:
-        band = False  
+        band = True  
+    return band 
+
 ```
 # Algoritmo 3.10
 ## Cola_llena (COLA, FINAL, MAX, BAND)
@@ -443,11 +494,12 @@ Este algoritmo determina si una estructura de datos tipo cola está llena, asign
      
 ### Código
 ```python
-def cola_llena(cola, final, max, band):
-    if final == max:  
-        band = True  
-    else:
-        band = False 
+def cola_llena(final, max):
+    band = False  
+    if final == max: 
+        band = True
+    return band  
+
 ```
 # Ejemplo 3.6
  Retome el ejemplo 3.1 de la sección 3.1.2. Se insertan en `COLA` los elementos: *lunes,
@@ -506,12 +558,15 @@ def inserta_circular(colacir, max, frente, final, dato):
         print("Desbordamiento - Cola llena")
     else:
         if final == max:  
-            final = 1  
+            final = 1
         else:
-            final += 1  
-        colacir[final] = dato 
+            final += 1 
+        colacir[final] = dato  
         if frente == 0:  
-            frente = 1  
+            frente = 1 
+            
+    return frente, final 
+
 ```
 # Algoritmo 3.12
 ## Elimina_circular (COLACIR, MAX, FRENTE, FINAL, DATO)
@@ -539,19 +594,22 @@ Este algoritmo elimina el primer elemento de una estructura tipo cola circular `
   2. {Fin de condicional del paso 1}
 ### Código
 ```python
-def elimina_circular(colacir, max, frente, final, dato):
-    if frente == 0:  
+def elimina_circular(colacir, max, frente, final):
+    if frente == 0: 
         print("Subdesbordamiento - Cola vacía")
     else:
-        dato = colacir[frente]  
+        dato = colacir[frente] 
         if frente == final:  
-            frente = 0  
+            frente = 0 
             final = 0
         else:
             if frente == max:  
                 frente = 1 
             else:
-                frente += 1 
+                frente += 1  
+    
+    return frente, final, dato  
+
 ```
 # Ejemplo 3.7
 En la figura 3.18a se presenta una estructura tipo cola circular de máximo 8 elementos `(MAX=8)`, en la cual ya se han almacenado algunos valores. En la figura 3.18b se muestra el estado de la cola luego de insertar el elemnto `NN`. 
