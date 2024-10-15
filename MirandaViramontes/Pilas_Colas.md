@@ -215,13 +215,13 @@ def prioridadOperador(op):
 def esOperador(op):
     return op in ['+', '-', '*', '/', '^']
 
-def Conv_postfija(EI):
+def Conv_postfija(EL):
     pila = [''] * 20
     tope = -1
     EPOS = ""  
     max = 20
     
-    for simbolo in EI:
+    for simbolo in EL:
         if simbolo.isalnum():  
             EPOS += simbolo
         elif simbolo == '(':
@@ -242,11 +242,6 @@ def Conv_postfija(EI):
         EPOS += dato
 
     return EPOS
-
-expresion = "(X+Z)*W/T^Y-V"
-print("Expresión infija:", expresion)
-expresion_posfija = Conv_postfija(expresion)
-print("Expresión posfija:", expresion_posfija)
 ```
 
 
