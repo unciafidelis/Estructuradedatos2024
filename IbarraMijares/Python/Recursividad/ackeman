@@ -1,0 +1,9 @@
+def ackerman(M,N):
+    if M == 0:
+        return N+1
+    else:
+        if N == 0:
+            return ackerman(M-1,1)
+        else:
+           return ackerman(M-1,ackerman(M,N-1))
+print(ackerman(2,2))
