@@ -18,5 +18,7 @@ sur = np.array(['Argentina','Bolivia','Colombia'])
 centro = np.array(['Belize','Costa Rica', 'El Salvador', 'Guatemala'])
 norte = np.array(['Canada', 'Estados Unidos', 'México'])
 
-print(mezclaPaises(sur,centro,norte))    
+print(mezclaPaises(sur,centro,norte))  
+
+#Imprime con error el resultado
 
